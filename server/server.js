@@ -9,8 +9,11 @@ import { authenticateToken } from './middleware/authMiddleware.js';
 dotenv.config();
 
 const app = express();
+const corsOptions = {
+  origin: process.env.CLIENT_URL
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
